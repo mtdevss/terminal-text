@@ -16,3 +16,6 @@ A simple python module that allows you send text messages to your phone.
 ### Contribution
 - This module is available under MIT license.
 - if you would like to contribute to this module feel free to fork and create a PR.
+
+##### DEMO
+[![asciicast](https://asciinema.org/a/6proHUTeUQ2m5LcolFZrZIbl9.svg)](https://asciinema.org/a/6proHUTeUQ2m5LcolFZrZIbl9)
