@@ -12,7 +12,8 @@ Options:
 from docopt import docopt
 
 def message(message):
-	print(message)
+	x = message
+	print(x)
 
 if __name__ == '__main__':
     arguments = docopt(__doc__)
