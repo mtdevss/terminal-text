@@ -9,7 +9,7 @@ Options:
   -h --help     Show this screen.
   --version     Show version.
   -m            send Message to your phone.
-  -mms          send a picture message
+  --media          send a picture message
 """
 
 from docopt import docopt
