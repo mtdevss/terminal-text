@@ -30,6 +30,7 @@ def mail_server(email,sms_gateway,text):
     server.starttls()
     server.login(email,pas)
     server.sendmail(email,sms_gateway,text)
+    server.quit()
 
 def send_text(text):
     msg = MIMEMultipart()
