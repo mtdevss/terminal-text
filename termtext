@@ -3,41 +3,44 @@
 
 Usage:
     termtext -m <text>
-    termtext --media <image>
+    termtext -h --help for more info
 
 Options:
   -h --help     Show this screen.
   --version     Show version.
-  -m            send Message to your phone.
-  --media          send a picture message
+  
 """
 
 from docopt import docopt
 import os
-from twilio.rest import *
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-def send_remainder(text):
-    auth_token  = os.environ["TWILIO_API"] 
-    account_sid = os.environ["TWILIO_SID"]
-    phone = Client(account_sid,auth_token)
-    remainder = phone.messages.create(
-        to=os.environ["YOUR_NUMBER"],         
-        from_=os.environ["TWILIO_NUMBER"],
-        body =text
-        )
+ 
 
+def mail_server(email,sms_gateway,text):
+    email = os.environ["EMAIL"]
+    pas =  os.environ["PASS"]
+    smtp = os.environ["SMTP"]
+    port = int(os.environ['PORT'])
+    server = smtplib.SMTP(smtp,port)
+    server.starttls()
+    server.login(email,pas)
+    server.sendmail(email,sms_gateway,text)
 
-def mms(image):
-    auth_token  = os.environ["TWILIO_API"] 
-    account_sid = os.environ["TWILIO_SID"]
-    phone = Client(account_sid,auth_token)
-    remainder = phone.messages.create(
-        to=os.environ["YOUR_NUMBER"],         
-        from_=os.environ["TWILIO_NUMBER"],
-        media_url = image,
-        body="You Received a MMS via termtext",
+def send_text(text):
+    msg = MIMEMultipart()
+    email = os.environ["EMAIL"]
+    sms_gateway = os.environ["SMS_GATEWAY"]
+    msg['From'] = email
+    msg['To'] = sms_gateway
+    msg['Subject'] = "TEXT SENT FROM TERMINAL\n"
+    body = text
+    msg.attach(MIMEText(body, 'plain'))
+    sms = msg.as_string()
+    mail_server(email,sms_gateway,sms)
 
-        )
 
 
 if __name__ == '__main__':
@@ -45,6 +48,4 @@ if __name__ == '__main__':
     arguments = docopt(__doc__,version='Terminal Text-1.0')
     
     if arguments['-m']:
-        send_remainder(arguments['<text>'])
-    elif arguments['--media']:
-        mms(arguments['<image>'])
+        send_text(arguments['<text>'])
