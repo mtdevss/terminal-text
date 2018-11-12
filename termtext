@@ -4,6 +4,8 @@
 Usage:
     termtext -m <text>
     termtext -h --help for more info
+    FOR SMS GATEWAYS LOOK AT THE DOCS AT
+    https://github.com/mraza007/terminal-text/
 
 Options:
   -h --help     Show this screen.
