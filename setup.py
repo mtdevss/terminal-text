@@ -3,7 +3,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setup(
      name='terminal-text',    
-     version='1.1',                         
+     version='1.2',                         
      scripts=['termtext'],
      description='Its a simple commandline tool that allows you send text messages and mms to your phone using terminal',
      install_requires=[
