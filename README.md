@@ -8,7 +8,7 @@ A simple python module that allows you send text messages to your phone.
 - export `SMTP` , smpt setting from your email for example `smtp.gmail.com`
 - export `PORT` , SMPT port
 - export `SMS_GATEWAY` the sms gateway of your carrier.
-
+- export `IMAP_HOST`  
 ### SMS GATEWAYS
 - AT&T: [number]@txt.att.net
 - Sprint: [number]@messaging.sprintpcs.com or [number]@pm.sprint.com
