@@ -14,7 +14,7 @@ Options:
 """
 
 from docopt import docopt
-import os
+import os , imaplib , email ,subprocess
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
