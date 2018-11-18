@@ -3,6 +3,7 @@
 
 Usage:
     termtext -m <text>
+    termtext notify 
     termtext -h --help for more info
     FOR SMS GATEWAYS LOOK AT THE DOCS AT
     https://github.com/mraza007/terminal-text/
@@ -48,6 +49,19 @@ def notify():
     imap_host = os.environ['IMAP_HOST']
     imap_user = os.environ["EMAIL"]
     imap_pass = os.environ["PASS"]
+    imap = imaplib.IMAP4_SSL(imap_host)
+    imap.login(imap_user, imap_pass)
+    imap.select('Inbox')
+    result,data = imap.uid('search',None,"ALL")
+    inbox_item = data[0].split()
+    most_recent = inbox_item[-1]
+    result2,email_data = imap.uid('fetch',most_recent,'(RFC822)')
+    raw_email = email_data[0][1].decode("utf-8")
+    b = email.message_from_string(raw_email)
+    if b['From'] == os.environ["SMS_GATEWAY"]:
+        subprocess.Popen(['notify-send', 'You Recieved a message from: ' + b['From']])
+    else:
+        subprocess.Popen(['notify-send', 'Sorry No Message'])
 
 
 
@@ -60,3 +74,6 @@ if __name__ == '__main__':
     
     if arguments['-m']:
         send_text(arguments['<text>'])
+    elif arguments['notify']:
+        notify()
+           
