@@ -44,6 +44,14 @@ def send_text(text):
     sms = msg.as_string()
     mail_server(email,sms_gateway,sms)
 
+def notify():
+    imap_host = os.environ['IMAP_HOST']
+    imap_user = os.environ["EMAIL"]
+    imap_pass = os.environ["PASS"]
+
+
+
+
 
 
 if __name__ == '__main__':
