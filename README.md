@@ -5,8 +5,8 @@ A simple python module that allows you send text messages to your phone.
 - `pip install terminal-text` install the module
 - export `EMAIL = Your Email` 
 - export `PASS = Your login password`
-- export `SMTP` , smpt setting from your email for example `smtp.gmail.com`
-- export `PORT` , SMPT port
+- export `SMTP` , smtp setting from your email for example `smtp.gmail.com`
+- export `PORT` , SMTP port
 - export `SMS_GATEWAY` the sms gateway of your carrier.
 - export `IMAP_HOST`  
 ### SMS GATEWAYS
