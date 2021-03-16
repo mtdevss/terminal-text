@@ -33,4 +33,4 @@ A simple python module that allows you send text messages to your phone.
 - if you would like to contribute to this module feel free to fork and create a PR.
 
 
-
+# NOTE THIS REPO HAS BEEN MOVED TO [MTDEVSS](https://github.com/mtdevss) AND NEW UPDATE COMING SOON
