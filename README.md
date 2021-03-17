@@ -20,6 +20,10 @@ A simple python module that allows you send text messages to your phone.
 - Tracfone: [number]@mmst5.tracfone.com
 - U.S. Cellular: [number]@email.uscc.net
 - Virgin Mobile: [number]@vmobl.com
+- Google Fi: [number]@msg.fi.google.com
+- Ting: [number]@message.ting.com
+- Telus Mobile: [number]@msg.telus.com
+- Viaero: [number]@viaerosms.com
 
 **NOTE**: Make sure to add **+1** before the number.
 
